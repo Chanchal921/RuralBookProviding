@@ -1,4 +1,4 @@
-import api from './axios';
+import api, { getApiBaseUrl } from './axios';
 
 export const resourceApi = {
   // Public Library
@@ -12,7 +12,7 @@ export const resourceApi = {
     return response.data;
   },
 
-  getDownloadUrl: (id) => `/api/resources/${id}/download`,
+  getDownloadUrl: (id) => `${getApiBaseUrl()}/resources/${id}/download`,
 
   // Resource Upload
   uploadResource: async (formData) => {
@@ -43,4 +43,3 @@ export const resourceApi = {
     return response.data;
   },
 };
-

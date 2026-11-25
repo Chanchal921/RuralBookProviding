@@ -2,6 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+  const rawApiUrl = import.meta.env.VITE_API_BASE_URL;
+  const backendOrigin = rawApiUrl
+    ? rawApiUrl.replace(/\/+$/, '').replace(/\/api$/, '')
+    : 'http://localhost:8080';
+  const swaggerUrl = `${backendOrigin}/swagger-ui.html`;
+
   return (
     <footer className="mt-auto bg-white border-top py-4">
       <div className="container">
@@ -21,7 +27,7 @@ const Footer = () => {
               <Link to="/" className="text-decoration-none text-muted">Home</Link>
               <Link to="/library" className="text-decoration-none text-muted">Digital Library</Link>
               <Link to="/about" className="text-decoration-none text-muted">About</Link>
-              <a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noreferrer" className="text-decoration-none text-success">
+              <a href={swaggerUrl} target="_blank" rel="noreferrer" className="text-decoration-none text-success">
                 API Docs (Swagger)
               </a>
             </div>

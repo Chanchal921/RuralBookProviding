@@ -103,7 +103,7 @@ const ResourceDetailsPage = () => {
                     </small>
                   </div>
                   <a
-                    href={`/api/resources/${resource.id}/download`}
+                    href={resourceApi.getDownloadUrl(resource.id)}
                     className="btn btn-primary-edu d-inline-flex align-items-center gap-2 px-3"
                   >
                     <i className="bi bi-download"></i> Download Resource

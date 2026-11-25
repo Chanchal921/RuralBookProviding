@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { adminApi } from '../../api/adminApi';
+import { resourceApi } from '../../api/resourceApi';
 import Sidebar from '../../components/common/Sidebar';
 import StatusBadge from '../../components/common/StatusBadge';
 import Pagination from '../../components/common/Pagination';
@@ -135,7 +136,7 @@ const AdminPendingApprovalsPage = () => {
                         <td>
                           {item.filePath ? (
                             <a
-                              href={`/api/resources/${item.id}/download`}
+                              href={resourceApi.getDownloadUrl(item.id)}
                               className="btn btn-sm btn-outline-danger py-0 px-2 small d-inline-flex align-items-center gap-1"
                               title="Download to inspect file"
                             >

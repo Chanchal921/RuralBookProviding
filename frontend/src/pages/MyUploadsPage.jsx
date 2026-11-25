@@ -137,7 +137,7 @@ const MyUploadsPage = () => {
 
                             {item.filePath && (
                               <a
-                                href={`/api/resources/${item.id}/download`}
+                                href={resourceApi.getDownloadUrl(item.id)}
                                 className="btn btn-outline-success"
                                 title="Download file"
                               >

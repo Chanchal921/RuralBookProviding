@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import StatusBadge from '../common/StatusBadge';
+import { resourceApi } from '../../api/resourceApi';
 
 const ResourceCard = ({ resource }) => {
   const isExternal = !!resource.externalUrl;
@@ -46,7 +47,7 @@ const ResourceCard = ({ resource }) => {
             </Link>
             {isFile && (
               <a
-                href={`/api/resources/${resource.id}/download`}
+                href={resourceApi.getDownloadUrl(resource.id)}
                 className="btn btn-success btn-sm py-0 px-2"
                 style={{ fontSize: '12px' }}
                 title="Download"
